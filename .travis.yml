@@ -1,0 +1,19 @@
+sudo: 
+  required
+  # false
+
+language: 
+  c 
+
+services:
+  - docker
+  
+  
+env:
+  - NAME=ocramz REPO=latex2html-docker
+  
+before_install:
+  - export TAG=${NAME}/${REPO}
+  
+script:
+  - docker build -t ${TAG} .
